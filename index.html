@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Serviço de beleza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Seu<span>nome</span></h2>
+
+        <nav>
+            <a href="#sobremim">Sobre Mim</a>
+            <a href="#servico">Meus Serviços</a>
+            <a href="#avaliacao">Avaliações</a>
+            <a href="#agendamento">Agendar agora</a>
+        </nav>
+        </header>
+        <main id="sobremim">
+                    <div class="foto-perfil">
+            <img src="" alt="">
+            <p>[Sua Foto aqui]</p>
+        </div>
+        <div class="text">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus suscipit aspernatur aperiam excepturi debitis ipsum necessitatibus tenetur quae quibusdam ducimus assumenda aut veritatis sed, qui ullam possimus maiores. Rem, commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere possimus quidem qui harum officia maxime magni nam? Quisquam cum ex sunt dolorum nisi, nulla earum libero. Numquam, quidem excepturi?</p>
+        </div>
+        </main>
+<section class="meus-servicos" id="servico">
+
+  <div class="card-servico">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC5e8KrhbKGXLBqdX6enb05sDNSdadEA0wKA&s" alt="Unhas">
+    <h3>Alongamento de Unhas</h3>
+    <p>Unhas perfeitas, resistentes e com acabamento profissional para qualquer ocasião.</p>
+    <span class="preco">R$ 80,00</span>
+      Agendar
+    </button>
+  </div>
+
+  <div class="card-servico">
+    <img src="https://i.pinimg.com/736x/e1/99/8c/e1998cbac4caa379ae479926a6518c92.jpg" alt="Pedicure">
+    <h3>Pedicure</h3>
+    <p>Cuidado completo para seus pés, com higiene, beleza e conforto.</p>
+    <span class="preco">R$ 40,00</span>
+  </div>
+
+  <div class="card-servico">
+    <img src="https://blog.meninashoes.com.br/wp-content/uploads/2023/01/extensao-de-cilios-volume-egipcio-maos-de-fada-1-1024x943.jpg" alt="Cílios">
+    <h3>Extensão de Cílios</h3>
+    <p>Realce seu olhar com cílios volumosos, naturais e duradouros.</p>
+    <span class="preco">R$ 150,00</span>
+    
+  </div>
+
+</section>
+
+        <section class="avaliacao" id="avaliacao">
+            <div class="avaliacao1 avaliacao-card">
+  <img src="https://i.pravatar.cc/150?img=32" alt="Cliente 1">
+  <h4>Ana Paula</h4>
+  <div class="estrelas">★★★★★</div>
+  <p>Atendimento maravilhoso! Minhas unhas ficaram perfeitas, com muito capricho 💖</p>
+</div>
+
+<div class="avaliacao2 avaliacao-card">
+  <img src="https://i.pravatar.cc/150?img=12" alt="Cliente 2">
+  <h4>Mariana Silva</h4>
+  <div class="estrelas">★★★★★</div>
+  <p>Profissional incrível, ambiente lindo e super confortável. Recomendo demais ✨</p>
+</div>
+
+<div class="avaliacao3 avaliacao-card">
+  <img src="https://i.pravatar.cc/150?img=45" alt="Cliente 3">
+  <h4>Juliana Costa</h4>
+  <div class="estrelas">★★★★☆</div>
+  <p>Gostei muito do resultado, voltou com certeza! Atendimento nota 10 👏</p>
+</div>
+
+        </section>
+        <section class="agendamento" id="agendamento">
+            <h2>Agende Seu <span>serviço!</span></h2>
+            <h3>Escolha seu serviço</h3>
+            <h4>Escolha o serviço desejado e fale comigo pelo WhatsApp para confirmar.</h4>
+            <div class="lista-servicos">
+                <div>
+                    <h4>Manicure</h4>
+                    <p>R$ 40,00</p>
+                    <button id="manicure" class="agendar" data-preco="40" data-nome="manicure">Agendar</button>
+
+                </div>
+                <div>
+                    <h4>Pedicure</h4>
+                    <p>R$ 50,00</p>
+                    <button id="pedicure" class="agendar" data-preco="50" data-nome="Pedicure">Agendar</button>
+                </div>
+                <div>
+                    <h4>Alongamento em gel</h4>
+                    <p>R$ 120,00</p>
+                    <button id="alongamento" class="agendar" data-preco="120" data-nome="alongamento em gel">Agendar</button>
+                </div>
+                <div>
+                    <h4>cilios fio a fio</h4>
+                    <p>R$ 150,00</p>
+                    <button data-preco="150" data-nome="cilios fio a fio" id="cilios" class="agendar">Agendar</button>
+                </div>
+            </div>
+           
+        </section>
+<div id="carrinho">
+  <div id="itens"></div>
+  <div>
+    <span id="valor">R$ 0.00</span>
+    <button id="Finalizarpedido" onclick="Finalizarpedido">Finalizar</button>
+  </div>
+</div>
+<section class="vercarrinho" id="vercarrinho">
+    <div id="items"></div>
+    <button id="fecharcarrinholateral">Fechar</button>
+</section>
+<div id="popupfinalizar">
+  <h2>Complete os dados abaixo!</h2>
+
+  <div class="dados">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Seu nome">
+
+    <label for="pagamento">Forma de pagamento:</label>
+    <select id="pagamento">
+      <option value="">Selecione</option>
+      <option value="Débito">Cartão de débito</option>
+      <option value="Crédito">Cartão de crédito</option>
+      <option value="Pix">Pix</option>
+    </select>
+
+    <button id="confirmarFinalizar">Confirmar</button>
+    <button onclick="Fechar()">Fechar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
