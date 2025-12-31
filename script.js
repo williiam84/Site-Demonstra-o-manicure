@@ -7,9 +7,49 @@ const nomeInput = document.getElementById("nome");
 const pagamentoSelect = document.getElementById("pagamento");
 const confirmar = document.getElementById("confirmarFinalizar");
 const popupfinalizar = document.getElementById("popupfinalizar")
+const btnmenu = document.getElementById("menu") 
+const btnfechar = document.getElementById("btnfechar")
+const abririnsta = document.getElementById("btnabririnsta")
+const facebook = document.getElementById("btnfacebook")
 
 let total = 0;
 let carrinhoguarda = []
+
+facebook.addEventListener("click", ()=>{
+  alert("Não temos Facebook")
+})
+
+abririnsta.addEventListener("click", ()=>{
+    window.open(
+    `https://www.instagram.com/william_dev1/`,
+    "_blank"
+  );
+})
+
+btnmenu.addEventListener("click", ()=>{
+  const menulateral =  document.getElementById("menulateral")
+  const btnnav = document.querySelectorAll(".btnnav")
+  menulateral.style.display = "flex"
+  btnmenu.style.display = "none"
+  menulateral.style.justifyContent = "center"
+  menulateral.style.alignItems = "center"
+  menulateral.style.gap = "20px"
+
+  btnfechar.addEventListener("click", ()=>{
+  menulateral.style.display = "none"
+
+  btnmenu.style.display = "block"
+})
+
+  btnnav.forEach((el) => {
+  el.addEventListener("click", () => {
+    menulateral.style.display = "none"
+    btnmenu.style.display = "block"
+  })
+})
+
+})
+
 
 botoes.forEach(botao => {
   botao.addEventListener("click", () => {

@@ -5,18 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Serviço de beleza</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
-    <header>
-        <h2>Seu<span>nome</span></h2>
+  <header>
+  <h2>Seu<span>nome</span></h2>
+  <button id="agendamentobtn">Agendamento</button>
 
-        <nav>
-            <a href="#sobremim">Sobre Mim</a>
-            <a href="#servico">Meus Serviços</a>
-            <a href="#avaliacao">Avaliações</a>
-            <a href="#agendamento">Agendar agora</a>
-        </nav>
-        </header>
+  <!-- Menu lateral mobile -->
+  <div class="menu-lateral" id="menu">☰</div>
+
+  <!-- Menu escondido -->
+  <div class="menu" id="menulateral">
+    <button id="btnfechar">X</button>
+    <a href="#sobremim" class="btnnav">Sobre Mim</a>
+    <a href="#servico" class="btnnav">Meus Serviços</a>
+    <a href="#avaliacao" class="btnnav">Avaliações</a>
+    <a href="#agendamento" class="btnnav">Agendar agora</a>
+    <a href="#horario" class="btnnav">Horários</a>
+  </div>
+
+  <!-- Menu desktop -->
+  <nav>
+    <a href="#sobremim">Sobre Mim</a>
+    <a href="#servico">Meus Serviços</a>
+    <a href="#avaliacao">Avaliações</a>
+    <a href="#agendamento">Agendar agora</a>
+  </nav>
+</header>
+
         <main id="sobremim">
                     <div class="foto-perfil">
             <img src="" alt="">
@@ -33,8 +52,7 @@
     <h3>Alongamento de Unhas</h3>
     <p>Unhas perfeitas, resistentes e com acabamento profissional para qualquer ocasião.</p>
     <span class="preco">R$ 80,00</span>
-      Agendar
-    </button>
+
   </div>
 
   <div class="card-servico">
@@ -136,7 +154,63 @@
     <button onclick="Fechar()">Fechar</button>
   </div>
 </div>
+<footer id="horario">
+  <div class="logo">
+    <h2>sua <span>logo</span></h2>
+  </div>
+  <div class="contato">
+   <h4> Prescisa de um momento?</h4>
+   <h5>WhatsAPP (00) 00000-0000</h5>
 
+   <div class="icons">
+<a href="https://wa.me/27997230221" target="_blank">
+  <div><i class="fa-brands fa-whatsapp"></i></div>
+</a>
+
+    <div id="btnabririnsta"><i class="fa-brands fa-square-instagram"></i></div>
+    <div id="btnfacebook"><i class="fa-brands fa-facebook"></i></div>
+   </div>
+  </div>
+  <div class="sobre-nos">
+    <h2>Sobre Nós</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, dolor distinctio provident blanditiis architecto aspernatur consectetur totam quia alias, corrupti, voluptatibus quae eum voluptatem aliquam maiores molestiae tenetur accusamus veniam?</p>
+  </div>
+  <div class="horarios">
+  <h2>Horários</h2>
+
+  <table class="tabela-responsiva">
+    <thead>
+      <tr>
+        <th>Dia</th>
+        <th>Manhã</th>
+        <th>Tarde</th>
+        <th>Noite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Dia">Segunda</td>
+        <td data-label="Manhã">08:00 - 12:00</td>
+        <td data-label="Tarde">14:00 - 18:00</td>
+        <td data-label="Noite">Fechado</td>
+      </tr>
+      <tr>
+        <td data-label="Dia">Terça</td>
+        <td data-label="Manhã">08:00 - 12:00</td>
+        <td data-label="Tarde">14:00 - 18:00</td>
+        <td data-label="Noite">Fechado</td>
+      </tr>
+      <tr>
+        <td data-label="Dia">Sábado</td>
+        <td data-label="Manhã">09:00 - 13:00</td>
+        <td data-label="Tarde">—</td>
+        <td data-label="Noite">—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</footer>
 <script src="script.js"></script>
 </body>
 </html>
