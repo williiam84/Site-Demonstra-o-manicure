@@ -1,244 +1,147 @@
-
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  text-decoration: none;
 }
-
-body {
-  background: #111;
-  color: #fff;
-  overflow-x: hidden;
-}/* ================= HEADER ================= */
 header {
   width: 100%;
   padding: 20px 40px;
-  background: #0f0f0f;
+  background: linear-gradient(90deg, #333, #555);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* LOGO */
 header h2 {
-  font-size: 26px;
-  color: white;
-}
-header h2 span {
-  color: #ff2fdc;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
 }
 
-/* BOTÃO AGENDAMENTO */
-#agendamentobtn {
-  padding: 10px 22px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(45deg, #ff2fdc, #ff7ad9);
-  color: #111;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(255,47,220,.6);
-  transition: 0.3s;
-}
-#agendamentobtn:hover {
-  transform: scale(1.05);
+header h2 span {
+  color: #d4af37;
 }
 
 /* ================= MENU DESKTOP ================= */
-nav {
+header nav {
   display: flex;
-  gap: 30px;
+  gap: 25px;
 }
-nav a {
-  color: #eaeaea;
+
+header nav a {
   text-decoration: none;
-  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
   position: relative;
-}
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff2fdc;
   transition: 0.3s;
 }
-nav a:hover::after {
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #d4af37;
+  transition: 0.3s;
+}
+
+header nav a:hover::after {
   width: 100%;
 }
-
-/* ================= ÍCONE MENU MOBILE ================= */
 .menu-lateral {
-  display: none; /* só aparece em mobile/tablet */
-  font-size: 32px;
-  cursor: pointer;
-  color: #ff2fdc;
-  z-index: 1000;
+  color: white;
+  font-size: 20pt;
 }
-
-/* ================= MENU LATERAL MOBILE ================= */
 .menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 280px;
-  height: 100vh;
-  background: linear-gradient(180deg, #111, #1a1a1a);
-  padding: 80px 30px;
-  display: flex;
+  left: 20%; /* fixo no lado esquerdo */
+  width: 80%; /* ocupa 80% da tela */
+  height: 100%;
+  background: linear-gradient(180deg, #333, #555); /* degrade elegante */
+  padding: 50px 25px;
+  display: none; /* inicialmente escondido */
   flex-direction: column;
-  gap: 25px;
-  transition: 0.4s ease;
-  z-index: 2000;
-  box-shadow: -10px 0 30px rgba(0,0,0,.7);
+  gap: 30px;
+  border-radius: 0 15px 15px 0; /* cantos arredondados à direita */
+  box-shadow: 4px 0 20px rgba(0,0,0,0.5); /* sombra lateral */
+  transition: all 0.4s ease;
+  z-index: 9999;
 }
 
-/* Quando abrir (adicione/remova classe via JS) */
-.menu.ativo {
-  right: 0;
-}
-
-/* BOTÃO FECHAR */
-#btnfechar {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+/* Botão de fechar */
+.menu button#btnfechar {
   background: none;
   border: none;
-  color: #ff2fdc;
-  font-size: 22px;
+  color: #fff;
+  font-size: 26px;
+  align-self: flex-end;
   cursor: pointer;
+  transition: transform 0.3s;
 }
 
-/* LINKS MOBILE */
-.menu a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  padding: 12px;
-  border-radius: 10px;
-  transition: 0.3s;
+.menu button#btnfechar:hover {
+  transform: rotate(90deg); /* efeito divertido ao passar o mouse */
 }
-.menu a:hover {
-  background: rgba(255,47,220,.15);
-  color: #ff2fdc;
+
+/* Links do menu */
+.menu a.btnnav {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.menu a.btnnav:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  transform: translateX(10px); /* efeito de leve movimento */
 }
 
 /* ================= RESPONSIVO ================= */
-@media (max-width: 1024px) {
-  nav {
-    display: none; /* some nav desktop */
-  }
-  #agendamentobtn {
-    display: none; /* some botão agendamento */
-  }
+@media (max-width: 768px) {
   .menu-lateral {
-    display: block; /* mostra ícone ☰ */
-  }
-}
-
-
-@media (max-width: 480px) {
-  header {
-    padding: 15px 20px;
+    display: block; /* ícone do menu aparece */
   }
 
-  header h2 {
-    font-size: 22px;
+  header nav {
+    display: none; /* esconde menu desktop */
   }
 }
-
-.menu-lateral {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-.menu {
-  display: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: linear-gradient(180deg,#111,#1a1a1a);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  z-index: 99999;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.menu button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-}
-#menu {
-  color: white;
-}
+/* ================= SOBRE MIM ================= */
 #sobremim {
-  width: 100%;
-  padding: 120px 40px 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
-
-  background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
-  position: relative;
+  gap: 40px;
+  padding: 120px 20px 60px;
+  background: #f5f5f5;
+  flex-wrap: wrap;
 }
 
-/* Detalhe decorativo */
-#sobremim::before {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: rgba(255, 47, 220, 0.15);
-  filter: blur(120px);
-  top: 20%;
-  left: 10%;
-  z-index: 0;
-}
-
-/* FOTO */
 .foto-perfil {
-  z-index: 1;
+  flex: 1 1 250px;
   text-align: center;
 }
 
 .foto-perfil img {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border: 5px solid #ff2fdc;
-
-  box-shadow:
-    0 0 25px rgba(255, 47, 220, 0.6),
-    0 0 50px rgba(255, 47, 220, 0.4);
-
-  transition: 0.4s ease;
+  border-radius: 50%;
+  border: 4px solid #d4af37;
+  transition: transform 0.3s;
 }
 
 .foto-perfil img:hover {
@@ -246,682 +149,520 @@ nav a:hover::after {
 }
 
 .foto-perfil p {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #ffb3e6;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
 }
 
-/* TEXTO */
 .text {
-  max-width: 620px;
-  z-index: 1;
-  text-align: left;
+  flex: 2 1 400px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
 }
 
-.text::before {
-  content: "Sobre mim";
+/* ================= SERVIÇOS ================= */
+#servico {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.card-servico {
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card-servico img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-servico h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  margin: 15px 0 10px;
+  color: #d4af37;
+}
+
+.card-servico p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #555;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.card-servico .preco {
   display: block;
-  font-size: 22px;
-  font-weight: bold;
-  color: #ff2fdc;
+  font-weight: 700;
+  color: #d4af37;
   margin-bottom: 15px;
 }
 
-.text p {
-  font-size: 16px;
-  line-height: 1.9;
-  color: #eaeaea;
+/* ================= AVALIAÇÕES ================= */
+#avaliacao {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background: #f5f5f5;
+  flex-wrap: wrap;
 }
 
-/* ================= MOBILE ================= */
+.avaliacao-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.avaliacao-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.avaliacao-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #d4af37;
+}
+
+.avaliacao-card h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.avaliacao-card .estrelas {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.avaliacao-card p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ================= AGENDAMENTO ================= */
+#agendamento {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+#agendamento h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#agendamento h2 span {
+  color: #d4af37;
+}
+
+#agendamento h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+#agendamento h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.lista-servicos {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.lista-servicos > div {
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 220px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.lista-servicos > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.lista-servicos h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.lista-servicos p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.agendar {
+  background: #d4af37;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.agendar:hover {
+  background: #bfa033;
+}
+
+/* ================= HORÁRIOS ================= */
+#horario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #333;
+  color: #fff;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  gap: 30px;
+}
+
+#horario .logo h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+#horario .logo h2 span {
+  color: #d4af37;
+}
+
+#horario .contato {
+  flex: 1 1 200px;
+}
+
+#horario .contato h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#horario .contato h5 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+#horario .contato .icons {
+  display: flex;
+  gap: 15px;
+}
+
+#horario .contato .icons div {
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#horario .contato .icons div:hover {
+  background: #d4af37;
+  color: #fff;
+}
+
+#horario .sobre-nos {
+  flex: 2 1 300px;
+}
+
+#horario .sobre-nos h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #d4af37;
+}
+
+#horario .sobre-nos p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+#horario .horarios {
+  flex: 1 1 200px;
+}
+
+#horario .horarios h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #d4af37;
+}
+
+#horario .tabela-responsiva {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#horario .tabela-responsiva th,
+#horario .tabela-responsiva td {
+  border: 1px solid #fff;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#horario .tabela-responsiva th {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* ================= MEDIA QUERIES ================= */
 @media (max-width: 768px) {
-  #sobremim {
-    flex-direction: column;
-    padding: 100px 20px 60px;
-    gap: 40px;
+  header nav {
+    display: none;
   }
 
-  .foto-perfil img {
-    width: 180px;
-    height: 180px;
+  .menu-lateral {
+    display: block;
+  }
+
+  #sobremim {
+    flex-direction: column;
+    padding: 140px 20px 60px;
   }
 
   .text {
     text-align: center;
   }
 
-  .text::before {
+  #servico {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-servico,
+  .avaliacao-card {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+
+  #avaliacao {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #horario {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #horario .contato, 
+  #horario .sobre-nos, 
+  #horario .horarios {
+    flex: 1 1 100%;
     text-align: center;
   }
-}
 
-.text::before {
-  content: "";
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg,#ff2fdc,#ff7ad9);
-  display: block;
-  margin-bottom: 20px;
-}
-
-.text p {
-  line-height: 1.8;
-  color: #eaeaea;
-}
-.meus-servicos {
-  padding: 60px 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 30px;
-}
-
-.card-servico {
-  background: #111;
-  border-radius: 20px;
-  overflow: hidden;
-  transition: .4s;
-}
-
-.card-servico:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(255,47,220,.4);
-}
-
-.card-servico img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.card-servico h3 {
-  color: #ff2fdc;
-  margin: 15px 0 5px;
-}
-
-.card-servico p {
-  font-size: 14px;
-  color: #eaeaea;
-}
-
-.preco {
-  display: block;
-  margin: 10px 0;
-  font-weight: bold;
-}
-.avaliacao {
-  padding: 60px 20px;
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: #fff;
-  color: #111;
-}
-
-.avaliacao-card {
-  width: 300px;
-  background: #f3f3f3;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-}
-
-.avaliacao-card img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-}
-
-/* ================= AGENDAMENTO ================= */
-.agendamento {
-  width: 100%;
-  padding: 120px 40px;
-  background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
-  text-align: center;
-  position: relative;
-}
-
-/* brilho decorativo */
-.agendamento::before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: rgba(255, 47, 220, 0.18);
-  filter: blur(140px);
-  top: 10%;
-  right: 5%;
-}
-
-/* TÍTULOS */
-.agendamento h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.agendamento h2 span {
-  color: #ff2fdc;
-}
-
-.agendamento h3 {
-  font-size: 18px;
-  color: #ffb3e6;
-  margin-bottom: 5px;
-}
-
-.agendamento h4 {
-  font-size: 14px;
-  color: #cfcfcf;
-  margin-bottom: 50px;
-}
-
-/* ================= LISTA SERVIÇOS ================= */
-.lista-servicos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* CARD */
-.lista-servicos div {
-  background: #111;
-  padding: 35px 25px;
-  border-radius: 20px;
-  box-shadow: 
-    0 0 15px rgba(255,47,220,.2),
-    0 0 40px rgba(0,0,0,.8);
-  transition: .4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* detalhe topo */
-.lista-servicos div::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff2fdc, #ff7ad9);
-  top: 0;
-  left: 0;
-}
-
-/* HOVER CARD */
-.lista-servicos div:hover {
-  transform: translateY(-10px);
-}
-
-/* TEXTO CARD */
-.lista-servicos h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.lista-servicos p {
-  font-size: 18px;
-  color: #ffb3e6;
-  margin-bottom: 25px;
-}
-
-/* BOTÃO */
-.agendar {
-  width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(45deg, #ff2fdc, #ff7ad9);
-  color: #111;
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-  transition: .3s;
-  box-shadow: 0 0 15px rgba(255,47,220,.6);
-}
-
-.agendar:hover {
-  transform: scale(1.05);
-  background: white;
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .agendamento {
-    padding: 100px 20px;
-  }
-
-  .agendamento h2 {
-    font-size: 28px;
-  }
-
-  .agendamento h3 {
-    font-size: 16px;
+  #horario .contato .icons {
+    justify-content: center;
   }
 }
-
-
-.lista-servicos {
-  max-width: 900px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 25px;
-}
-
-.lista-servicos div {
-  background: #111;
-  padding: 25px;
-  border-radius: 18px;
-}
-
-.lista-servicos button {
-  margin-top: 10px;
-  background: #ff2fdc;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-}
-#carrinho {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 900px;
-
-  background: linear-gradient(135deg, #ffffff, #f7f7f7);
-  color: #111;
-
-  border-radius: 20px;
-  padding: 20px 25px;
-
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,0.25),
-    0 0 25px rgba(255,47,220,0.35);
-
-  animation: subirCarrinho 0.4s ease;
-  z-index: 9999;
-}
-
-/* Animação */
-@keyframes subirCarrinho {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 40px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-/* Itens */
-#itens {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Área direita */
-#carrinho > div:last-child {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Valor total */
-#valor {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ff2fdc;
-}
-
-/* Botão finalizar */
-#Finalizarpedido {
-  background: linear-gradient(135deg, #ff2fdc, #ff7ad9);
-  border: none;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s ease;
-
-  box-shadow:
-    0 0 10px rgba(255,47,220,.6),
-    0 0 30px rgba(255,47,220,.4);
-}
-
-#Finalizarpedido:hover {
-  transform: scale(1.05);
-  background: white;
-  color: #ff2fdc;
-  border: 2px solid #ff2fdc;
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  #carrinho {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-
-  #carrinho > div:last-child {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #Finalizarpedido {
-    width: 100%;
-  }
-}
-
-/* ================= OVERLAY ================= */
 #popupfinalizar {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(6px);
-  display: none; /* você controla com JS */
-  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* fundo escuro semi-transparente */
+  display: flex;
   justify-content: center;
+  align-items: center;
   z-index: 9999;
-}
-
-/* ================= CAIXA ================= */
-#popupfinalizar > h2 {
-  display: none;
+  display: none; /* inicialmente escondido */
+  margin: 0 auto;
+  flex-direction: column;
 }
 
 #popupfinalizar .dados {
-  background: #111;
-  width: 100%;
-  max-width: 420px;
+  background: #fff;
   padding: 40px 30px;
-  border-radius: 25px;
-  box-shadow:
-    0 0 25px rgba(255, 47, 220, 0.4),
-    0 0 60px rgba(0, 0, 0, 0.9);
-  position: relative;
-  animation: popup .4s ease;
-}
-
-/* Animação */
-@keyframes popup {
-  from {
-    opacity: 0;
-    transform: scale(0.8) translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* TÍTULO */
-#popupfinalizar .dados::before {
-  content: "Complete os dados abaixo";
-  display: block;
-  font-size: 22px;
-  font-weight: bold;
-  color: #ff2fdc;
-  margin-bottom: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* ================= FORM ================= */
+#popupfinalizar h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
 #popupfinalizar label {
-  display: block;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  color: #ccc;
-  margin-bottom: 6px;
-  margin-top: 15px;
+  color: #555;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
 }
 
 #popupfinalizar input,
 #popupfinalizar select {
   width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  background: #1a1a1a;
-  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
-/* foco */
 #popupfinalizar input:focus,
 #popupfinalizar select:focus {
-  box-shadow: 0 0 0 2px rgba(255, 47, 220, 0.6);
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
 }
 
-/* ================= BOTÕES ================= */
-#confirmarFinalizar {
-  width: 100%;
-  margin-top: 30px;
-  padding: 14px;
-  border-radius: 30px;
+#popupfinalizar button {
+  padding: 12px 20px;
   border: none;
-  background: linear-gradient(45deg, #ff2fdc, #ff7ad9);
-  color: #111;
-  font-weight: bold;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
   cursor: pointer;
-  transition: .3s;
-  box-shadow: 0 0 15px rgba(255,47,220,.6);
+  transition: background 0.3s, transform 0.2s;
 }
 
-#confirmarFinalizar:hover {
-  transform: scale(1.05);
-  background: white;
+#popupfinalizar button#confirmarFinalizar {
+  background: #d4af37;
+  color: #fff;
 }
 
-/* BOTÃO FECHAR */
-#popupfinalizar button:last-child {
-  width: 100%;
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 30px;
-  border: 1px solid #ff2fdc;
-  background: transparent;
-  color: #ff2fdc;
-  cursor: pointer;
-  transition: .3s;
+#popupfinalizar button#confirmarFinalizar:hover {
+  background: #bfa033;
+  transform: translateY(-2px);
 }
 
-#popupfinalizar button:last-child:hover {
-  background: #ff2fdc;
-  color: #111;
+#popupfinalizar button[onclick] {
+  background: #ccc;
+  color: #333;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 480px) {
-  #popupfinalizar .dados {
-    padding: 30px 20px;
-  }
+#popupfinalizar button[onclick]:hover {
+  background: #aaa;
+  transform: translateY(-2px);
 }
-
-
-.dados {
-  display: flex;
+#carrinho {
+  position: fixed; /* pode ficar sempre visível */
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  display: none;
   flex-direction: column;
   gap: 15px;
-}
-
-.dados input,
-.dados select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ff2fdc;
-}
-footer {
-  width: 100%;
-  padding: 70px 40px 40px;
-  background: linear-gradient(180deg, #0f0f0f, #111);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 50px;
-  color: white;
-  position: relative;
-}
-
-/* Linha neon no topo */
-footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #ff2fdc, #ff7ad9);
-}
-
-/* LOGO */
-footer .logo h2 {
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-footer .logo span {
-  color: #ff2fdc;
-}
-
-/* CONTATO */
-.contato h4 {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.contato h5 {
-  font-size: 15px;
-  font-weight: normal;
-  color: #dcdcdc;
-}
-
-/* ICONES SOCIAIS */
-.icons {
+  z-index: 10000;
   display: flex;
-  gap: 15px;
-  margin-top: 15px;
+  margin: 0 auto;
 }
 
-.icons div {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #ff2fdc;
+#carrinho #itens {
+  max-height: 200px;
+  overflow-y: auto; /* rolagem se muitos itens */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Valor total e botão */
+#carrinho > div {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+#carrinho #valor {
+  font-weight: 700;
+  font-size: 18px;
+  color: #d4af37;
+}
+
+#carrinho button#Finalizarpedido {
+  background: #d4af37;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 
-    0 0 10px rgba(255,47,220,.6),
-    0 0 25px rgba(255,47,220,.4);
+  transition: background 0.3s, transform 0.2s;
 }
 
-.icons div i {
-  font-size: 20px;
-  color: #111;
+#carrinho button#Finalizarpedido:hover {
+  background: #bfa033;
+  transform: translateY(-2px);
 }
 
-.icons div:hover {
-  background: white;
-  transform: translateY(-5px) scale(1.1);
+/* ================= ITENS DO CARRINHO ================= */
+#carrinho #itens .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* SOBRE */
-.sobre-nos h2,
-.horarios h2 {
-  margin-bottom: 10px;
-}
-
-.sobre-nos p {
+#carrinho #itens .item span.nome {
   font-size: 14px;
-  color: #dcdcdc;
-  line-height: 1.6;
+  color: #333;
 }
 
-/* HORÁRIOS */
-.horarios {
-  width: 100%;
-}
-
-.horarios .tabela-responsiva {
-  margin-top: 15px;
-  background: #111;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.tabela-responsiva th {
-  background: #ff2fdc;
-  color: #111;
-  font-weight: bold;
-}
-
-.tabela-responsiva td {
-  padding: 12px;
-  color: #f3f3f3;
-}
-
-.tabela-responsiva tr:nth-child(even) {
-  background: rgba(255,255,255,.05);
-}
-
-/* RODAPÉ FINAL */
-footer::after {
-  content: "© 2025 - Todos os direitos reservados";
-  display: block;
-  text-align: center;
-  margin-top: 40px;
-  font-size: 13px;
-  color: #aaa;
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  footer {
-    text-align: center;
-  }
-
-  .icons {
-    justify-content: center;
-  }
-}
-.vercarrinho {
-  display: none;
-}
-/* Ícone menu mobile */
-.menu-lateral {
-  display: none; /* desktop: escondido */
-  font-size: 32px;
-  color: #ff2fdc;
-  cursor: pointer;
-  z-index: 1001; /* acima do header */
-}
-
-/* Responsivo: tablet e celular */
-@media (max-width: 1024px) {
-  nav {
-    display: none; /* esconde nav desktop */
-  }
-  #agendamentobtn {
-    display: none; /* esconde botão agendamento */
-  }
-  .menu-lateral {
-    display: block; /* mostra ícone ☰ */
-  }
+#carrinho #itens .item span.preco {
+  font-weight: 600;
+  color: #d4af37;
 }
