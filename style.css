@@ -678,3 +678,6 @@ header nav a:hover::after {
     display: none; /* esconde menu desktop */
   }
 }
+#carrinho {
+  display: none;
+}
