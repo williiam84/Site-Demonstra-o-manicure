@@ -669,3 +669,12 @@ header nav a:hover::after {
 .menu-lateral {
   display: none;
 }
+@media (max-width: 768px) {
+  .menu-lateral {
+    display: block; /* ícone do menu aparece */
+  }
+
+  header nav {
+    display: none; /* esconde menu desktop */
+  }
+}
